@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <title>Library</title>
-	<meta name="robots" content="noindex">
-	<meta name="googlebot" content="noindex">
+
     <meta
       name="description"
       content="Zmags is a content creation tool used to create and publish experiences to your website"
@@ -50,33 +49,6 @@
   <body>
     <div class="wrapper">
 	<script>
-		$( document ).ready(function() {
-			$(".boom").click(function() {
-				if($(this).hasClass('clicked')){
-					$(this).removeClass('clicked');
-				} else {
-					$('.boom').removeClass('clicked');
-					$(this).addClass('clicked');
-				}
-			});
-			$(".boomtwo").click(function() {
-				if($(this).hasClass('clicked')){
-					$(this).removeClass('clicked');
-				} else {
-					$('.boomtwo').removeClass('clicked');
-					$(this).addClass('clicked');
-				}
-			});
-			$(".boomthree").click(function() {
-				if($(this).hasClass('clicked')){
-					$(this).removeClass('clicked');
-				} else {
-					$('.boomthree').removeClass('clicked');
-					$(this).addClass('clicked');
-				}
-			});
-		});
-		
 		var xhReq = new XMLHttpRequest();
 		xhReq.open("GET", 'https://sheets.googleapis.com/v4/spreadsheets/1uvR-NcqFeqhBavIokcDl4Lv7a8cyAVw7dti5Hol70nI/values/Sheet1!A:D?key=AIzaSyCOkvqyD54WTLneD9kaCO0u0yLUjfJen5Q', false);
 		xhReq.send(null);
@@ -86,7 +58,7 @@
 		
 		var content = '', vertical = 'N/A', ecomm = 'N/A', usecase = 'N/A';
 		var match1, match2, match3;
-		
+		var matches = [];
 		function displayList(exampleUrl){	
 			content +=		'<tr>\n';
 			content +=			'<td>\n';
@@ -95,27 +67,9 @@
 			content +=		'</tr>\n';
 		}
 		
-		function setVert(option){ 
-			if(option == vertical){
-				vertical = 'N/A';
-			} else {
-				vertical = option; 
-			}
-		}
-		function setEcomm(option){ 
-			if(option == ecomm){
-				ecomm = 'N/A';
-			} else {
-				ecomm = option; 
-			}
-		}
-		function setUse(option){ 
-			if(option == usecase){
-				usecase = 'N/A';
-			} else {
-				usecase = option; 
-			}
-		}
+		function setVert(option){ vertical = option; }
+		function setEcomm(option){ ecomm = option; }
+		function setUse(option){ usecase = option; }
 		
 		function filterContent(){
 			document.getElementById("list").innerHTML = '';
@@ -182,24 +136,23 @@
               <button class="boom" onclick="setVert('active')">Active</button>
               <button class="boom" onclick="setVert('jewelry')">Jewelry</button>
 			  <button class="boom" onclick="setVert('food')">Food &amp; Drink</button>
-			  <button class="boom" onclick="setVert('other')">Other</button>
             </div>
             <div class="tres" id="myDIVthree">
-				<button class="boomtwo" onclick="setEcomm('sfcc')">Salesforce</button>
-				<button class="boomtwo" onclick="setEcomm('magento')">Magento</button>
-				<button class="boomtwo" onclick="setEcomm('shopify')">Shopify</button>
-				<button class="boomtwo" onclick="setEcomm('bigcommerce')">BigCommerce</button>
-				<button class="boomtwo" onclick="setEcomm('zsites')">Zsites</button>
-				<button class="boomtwo" onclick="setEcomm('other')">Other</button>
+              <button class="boomthree" onclick="setEcomm('magento')">Magento</button>
+              <button class="boomthree" onclick="setEcomm('sfcc')">Salesforce</button>
+              <button class="boomthree" onclick="setEcomm('bigcommerce')">BigCommerce</button>
+              <button class="boomthree" onclick="setEcomm('shopify')">Shopify</button>
+              <button class="boomthree" onclick="setEcomm('zsites')">Zsites</button>
+              <button class="boomthree" onclick="setEcomm('custom')">Custom</button>
             </div>
 			<div class="quatro" id="myDIV">
-              <button class="boomthree" onclick="setUse('homepage')">Homepage</button>
-			  <button class="boomthree" onclick="setUse('landing')">Landing</button>
-              <button class="boomthree" onclick="setUse('quiz')">Quiz</button>
-              <button class="boomthree" onclick="setUse('banner')">Banner</button>
-              <button class="boomthree" onclick="setUse('lookbook')">Look Book</button>
-			  <button class="boomthree" onclick="setUse('blog')">Blog</button>
-              <button class="boomthree" onclick="setUse('other')">Other</button>
+              <button class="boom" onclick="setUse('homepage')">Homepage</button>
+              <button class="boom" onclick="setUse('quiz')">Quiz</button>
+              <button class="boom" onclick="setUse('banner')">Banner</button>
+              <button class="boom" onclick="setUse('lookbook')">Look Book</button>
+              <button class="boom" onclick="setUse('landing')">Landing</button>
+			  <button class="boom" onclick="setUse('blog')">Blog</button>
+              <button class="boom" onclick="setUse('other')">Other</button>
             </div>
             <div class="says">
               <button class="submit" onclick="filterContent()">Find Experiences</button>

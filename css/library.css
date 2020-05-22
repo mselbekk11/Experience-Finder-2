@@ -188,6 +188,13 @@ button.submit {
   border: none;
 }
 
+.clicked {
+  background-color: #50246f !important;
+  -webkit-transition: 0.3s;
+  color: #fff;
+  border: 2px solid #50246f;
+}
+
 .active {
   color: #fff !important;
   background-color: #50246f !important;
